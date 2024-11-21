@@ -10,7 +10,7 @@
 
 :scheduler:
   :schedule:
-    manage_abandoned_carts_job:
-      cron: "*/2 * * * *" #"0 * * * *"
-      class: "ManageAbandonedCartsJob"
+    mark_cart_as_abandoned_job:
+      cron: "0 * * * *"
+      class: "Infra::Sale::Workers::MarkCartAsAbandonedJob"
       queue: "default"
