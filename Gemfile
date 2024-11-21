@@ -14,6 +14,7 @@ gem 'sidekiq-scheduler', '~> 5.0', '>= 5.0.3'
 gem 'guard'
 gem 'guard-livereload', require: false
 
+gem 'bcrypt', '~> 3.1.20'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
