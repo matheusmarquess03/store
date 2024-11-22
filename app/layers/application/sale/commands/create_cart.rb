@@ -18,7 +18,9 @@ module Application
 
         def call
           cart = find_or_initialize_cart
-          product = fetch_product(dto.product_id)
+          product = fetch_product
+
+          return response_error("The requested product was not found in the system. Please check and try again.") if product.nil?
 
           update_cart_product(cart, product)
 
@@ -49,15 +51,11 @@ module Application
           cart_product
 
           cart_product_repository.save!(cart_product)
-
           cart_product
         end
 
-        def fetch_product(product_id)
-          product = product_repository.find_by(id: product_id)
-          return response_error("The requested product was not found in the system. Please check and try again.") if product.nil?
-
-          product
+        def fetch_product
+          product_repository.find_by(id: dto.product_id)
         end
 
         def build_cart_response(cart)

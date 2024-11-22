@@ -26,7 +26,7 @@ RSpec.describe Application::Sale::Commands::AddProduct, type: :class do
 
     before do
       allow(cart_repository).to receive(:find_by).with(id: dto.id).and_return(cart)
-      allow(product_repository).to receive(:find_by_id).with(dto.product_id).and_return(product)
+      allow(product_repository).to receive(:find_by).with(id: dto.product_id).and_return(product)
       allow(cart_product_filter).to receive(:new).with(cart_id: cart.id).and_return(double)
       allow(cart_product_query_object).to receive(:new).and_return(double(cart_total_price: 100))
 

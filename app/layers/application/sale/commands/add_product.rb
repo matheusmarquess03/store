@@ -18,8 +18,12 @@ module Application
 
         def call
           cart = cart_repository.find_by(id: dto.id)
+          product = product_repository.find_by(id: dto.product_id)
 
+          return response_error("Product not found.") unless product
           return response_error("Cart not found.") unless cart
+          return response_error("Quantity must be 1 or more.") if dto.quantity.negative?
+
 
           add_product_to_cart(cart)
 
@@ -60,10 +64,7 @@ module Application
         end
 
         def add_product_to_cart(cart)
-          product = product_repository.find_by_id(dto.product_id)
-          return unless product
-
-          cart_product = cart.cart_products.find_or_initialize_by(product_id: product.id)
+          cart_product = cart.cart_products.find_or_initialize_by(product_id: dto.product_id)
 
           if cart_product.persisted?
             cart_product.increment!(:quantity, dto.quantity.to_i)
