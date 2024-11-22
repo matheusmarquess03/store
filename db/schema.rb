@@ -39,13 +39,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_20_164637) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "email"
-    t.string "password_digest"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   add_foreign_key "cart_products", "carts"
   add_foreign_key "cart_products", "products"
 end

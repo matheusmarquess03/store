@@ -13,20 +13,8 @@ module Infra
         model.find_by(attribute)
       end
 
-      def find_or_initialize_by(attribute)
-        model.find_or_initialize_by(attribute)
-      end
-
       def find_by_id(attribute)
         model.find(attribute)
-      end
-
-      def update(products, attributes)
-        products.update(attributes)
-      end
-
-      def update_all(products, attributes)
-        products.in_batches.update_all(attributes)
       end
 
       private

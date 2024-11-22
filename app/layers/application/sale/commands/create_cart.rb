@@ -26,7 +26,7 @@ module Application
 
           response_class.new(
             success: true,
-            message: "Criado com sucesso!",
+            message: "Created successfully!",
             cart: build_cart_response(cart)
           )
         rescue ActiveRecord::RecordInvalid => e
