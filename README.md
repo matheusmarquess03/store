@@ -1,3 +1,60 @@
+## How to Run the Project
+
+Follow the steps below to get your development environment set up and the application running.
+1. **Clone o Repositório**:
+   ```bash
+   git clone <URL_DO_REPOSITORIO>
+   cd <NOME_DA_PASTA>
+   ```
+
+2. **Instale as Dependências**:
+   ```bash
+   docker-compose build
+   ```
+
+3. **Inicie os Contêineres**:
+   ```bash
+   docker-compose up -d
+   ```
+
+4. **Crie o Banco de Dados**:
+   ```bash
+   docker-compose exec web bin/rails db:create
+   ```
+
+5. **Aplique as Migrações**:
+   ```bash
+   docker-compose exec web bin/rails db:migrate
+   ```
+
+6. **Carregue Dados de Exemplo (opcional)**:
+   ```bash
+   docker-compose exec web bin/rails db:seed
+   ```
+
+7. **Inicie o Servidor**:
+   ```bash
+   docker-compose exec web bin/rails server -b 0.0.0.0
+   ```
+
+8. **Acesse a Aplicação**:
+   Abra seu navegador e acesse a aplicação em:
+   ```
+   http://localhost:3000
+   ```
+
+9. **Executar Testes (opcional)**:
+   Para executar os testes, use:
+
+    ```bash
+   docker-compose exec web bash
+   ```
+
+   ```bash
+   RAILS_ENV=test bundle exec rspec
+   ```
+
+
 # Desafio técnico e-commerce
 
 ## Nossas expectativas
