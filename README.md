@@ -3,8 +3,8 @@
 Follow the steps below to get your development environment set up and the application running.
 1. **Clone o Repositório**:
    ```bash
-   git clone <URL_DO_REPOSITORIO>
-   cd <NOME_DA_PASTA>
+   git clone git@github.com:matheusmarquess03/store.git
+   cd store
    ```
 
 2. **Instale as Dependências**:
